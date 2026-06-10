@@ -1,7 +1,6 @@
 <script lang="ts">
   let { data } = $props();
   import { goto } from "$app/navigation";
-  console.log(data.levels);
 </script>
 
 <div class="flex justify-center">
