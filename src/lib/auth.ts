@@ -10,7 +10,7 @@ export async function initializedAuth() {
         return
     }
 
-    const res = await fetch("http://localhost:8000/me", {
+    const res = await fetch("http://localhost:8000/auth/me", {
         headers: {
             Authorization: `Bearer ${token}`
         }

@@ -1,5 +1,4 @@
 import { browser } from "$app/env";
-import type { RouteParams } from "$app/types";
 
 const API_URL = import.meta.env.API_URL
 
