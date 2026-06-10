@@ -2,6 +2,12 @@
   import favicon from "$lib/assets/favicon.svg";
   import Navbar from "$lib/components/navbar.svelte";
   import "$lib/assets/app.css";
+  import { onMount } from "svelte";
+  import { loadUser } from "$lib/loadUser";
+
+  onMount(() => {
+    loadUser();
+  });
 
   let { children } = $props();
 </script>

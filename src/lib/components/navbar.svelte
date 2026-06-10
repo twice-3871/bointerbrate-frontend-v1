@@ -1,3 +1,9 @@
+<script>
+  // @ts-nocheck
+
+  import { user } from "$lib/auth";
+</script>
+
 <nav class="bg-blue-500 flex items-center justify-between p-1">
   <img
     class="h-full w-128 object-cotain p-2"
@@ -5,8 +11,17 @@
     alt="Bointerbrate"
   />
 
-  <div class="m-5 flex gap-6">
+  <div class="m-5 flex justify-center items-center gap-6 text-2xl text-white">
     <a href="/">Home</a>
     <a href="/list/classic">List</a>
+    {#if $user}
+      <img
+        src={`https://cdn.discordapp.com/avatars/${$user.id}/${$user.avatar}.png`}
+        alt="avatar"
+        class="w-15 h-15 rounded-full"
+      />
+    {:else}
+      <a href="http://localhost:8000/auth/login">Log In</a>
+    {/if}
   </div>
 </nav>
