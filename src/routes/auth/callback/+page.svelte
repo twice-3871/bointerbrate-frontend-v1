@@ -6,7 +6,7 @@
 
     if (token) {
       localStorage.setItem("token", token);
-      window.location.href = "/";
+      window.history.replaceState({}, "", "/");
     }
   });
 </script>

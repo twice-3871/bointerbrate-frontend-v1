@@ -1,5 +1,5 @@
 <script lang="ts">
-  import favicon from "$lib/assets/favicon.svg";
+  import favicon from "$lib/assets/logo.svg";
   import Navbar from "$lib/components/navbar.svelte";
   import "$lib/assets/app.css";
   import { onMount } from "svelte";
