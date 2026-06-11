@@ -3,10 +3,10 @@
   import Navbar from "$lib/components/navbar.svelte";
   import "$lib/assets/app.css";
   import { onMount } from "svelte";
-  import { initializedAuth } from "$lib/auth";
+  import { initAuth } from "$lib/auth";
 
   onMount(() => {
-    initializedAuth();
+    initAuth();
   });
 
   let { children } = $props();

@@ -1,7 +1,9 @@
-import { api } from "$lib/api";
+export async function load({fetch, params}) {
+    const res = await fetch(`http://localhost:8000/levels/${params.type}`)
+    const levels = await res.json()
 
-export async function load({params, fetch}) {
     return {
-        levels: await api(`levels/${params.type}`, fetch)
+        levels,
+        debug: "LOAD WORKS"
     }
 }

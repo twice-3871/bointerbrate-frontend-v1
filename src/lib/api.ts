@@ -1,14 +1,25 @@
+import { browser } from "$app/environment";
 
-export async function api(
+const API_URL = import.meta.env.VITE_API_URL
+
+export async function api<T>(
     path: string,
-    fetchFn: typeof fetch,
-    opitions: RequestInit = {}
-) {
-    const res = await fetchFn(`${import.meta.env.VITE_API_URL}/${path}`, opitions)
+    options: RequestInit = {}
+): Promise<T> {
+    const token = browser ? localStorage.getItem("token") : null
 
+    const res = await fetch(`${API_URL}/${path}`, {
+        ...options,
+        headers: {
+            "Content-Type": "application/json",
+            ...(options.headers || {}),
+            ...(token ? {Authorization: `Bearer ${token}`} : {})
+        }
+    })
+ 
     if (!res.ok) {
-        throw new Error(`Api error: ${res.status}`)
+        throw new Error(`API errorL: ${res.status}`)
     }
 
-    return await res.json()
+    return res.json();
 }

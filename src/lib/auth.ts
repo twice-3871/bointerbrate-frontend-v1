@@ -1,31 +1,35 @@
+import { browser } from "$app/environment";
 import { writable } from "svelte/store";
+import { api } from "./api";
 
-export const user = writable<string | null>(null)
+export const user = writable<User | null>(null)
 
-export async function initializedAuth() {
+export async function initAuth() {
     const token = localStorage.getItem("token");
-
     if (!token) {
         user.set(null)
         return
     }
 
-    const res = await fetch("http://localhost:8000/auth/me", {
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    })
-
-    if (!res.ok) {
+    try {
+        const me = await api<User>("auth/me")
+        user.set(me)
+    } catch {
         localStorage.removeItem("token")
         user.set(null)
-        return
     }
-
-    user.set(await res.json())
+    
 }
 
 export function logout() {
     localStorage.removeItem("token")
     user.set(null)
+}
+
+if (browser) {
+    window.addEventListener("storage", (e) => {
+        if (e.key === "token" && !e.newValue) {
+            user.set(null)
+        }
+    })
 }
