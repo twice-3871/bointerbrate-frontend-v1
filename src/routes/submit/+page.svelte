@@ -14,6 +14,7 @@
   type Level = {
     level_id: number;
     level_name: string;
+    level_pos: number;
   };
 
   let levels = $state(<Level[]>[]);
@@ -75,7 +76,7 @@
 
       {#each levels as level}
         <option value={level.level_id}>
-          {level.level_name}
+          #{level.level_pos} - {level.level_name}
         </option>
       {/each}
     </select>
