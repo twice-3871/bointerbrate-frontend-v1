@@ -45,7 +45,7 @@
 
   async function loadLevels() {
     try {
-      levels = await api(`levels/${type_of_level}`);
+      levels = await api(`levels/${type_of_level}/all`);
       level_id = "";
     } catch (e) {
       error = "Failed to load levels";

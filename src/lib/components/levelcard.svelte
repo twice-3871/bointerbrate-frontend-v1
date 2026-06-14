@@ -12,18 +12,19 @@
 </script>
 
 <div class="bg-blue-500 w-200 mb-5 p-5 text-3xl flex justify-left">
-  <div class="w-64 h-36 mr-5 shrink-0">
-    <img
-      class="w-full h-full object-cover rounded"
-      src={getYoutubeThumbnail(level.verification_url)}
-      alt={level.level_name}
-    />
-  </div>
+  <a href={`/level/${level.level_id}`} class="block">
+    <div class="bg-blue-500 w-200 mb-5 flex">
+      <img
+        src={getYoutubeThumbnail(level.verification_url)}
+        class="w-56 h-32 object-cover"
+        alt={level.level_name}
+      />
 
-  <div class="flex items-start">
-    <div class="flex flex-col font-sans">
-      <h2 class="my-2 text-4xl">#{level.level_pos} - {level.level_name}</h2>
-      <p class="my-2 text-base font-bold">Published by: {level.creator}</p>
+      <div class="p-4">
+        <h2>#{level.level_pos} - {level.level_name}</h2>
+        <p>Creator: {level.creator}</p>
+        <p>Level ID: {level.level_id}</p>
+      </div>
     </div>
-  </div>
+  </a>
 </div>
