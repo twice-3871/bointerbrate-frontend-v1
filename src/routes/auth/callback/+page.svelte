@@ -1,7 +1,9 @@
+<script context="module">
+  export const prerender = false;
+</script>
+
 <script>
   import { onMount } from "svelte";
-
-  export const prerender = false;
 
   onMount(() => {
     const token = new URLSearchParams(window.location.search).get("token");
