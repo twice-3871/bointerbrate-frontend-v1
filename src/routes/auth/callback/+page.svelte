@@ -1,13 +1,17 @@
 <script>
+  import { initAuth } from "$lib/auth";
   import { onMount } from "svelte";
 
-  onMount(() => {
+  onMount(async () => {
     const token = new URLSearchParams(window.location.search).get("token");
 
-    if (token) {
-      localStorage.setItem("token", token);
-      window.location.href = "/";
-    }
+    if (!token) return;
+
+    localStorage.setItem("token", token);
+
+    await initAuth();
+
+    window.location.replace("/");
   });
 </script>
 

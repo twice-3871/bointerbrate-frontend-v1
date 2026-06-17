@@ -25,7 +25,7 @@
         class="w-15 h-15 rounded-full"
       />
     {:else}
-      <a href="{API_URL}/auth/login">Log In</a>
+      <a href={`${API_URL}/auth/login`}>Log In</a>
     {/if}
   </div>
 </nav>

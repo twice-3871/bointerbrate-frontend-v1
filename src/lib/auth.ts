@@ -13,8 +13,10 @@ export async function initAuth() {
 
     try {
         const me = await api<User>("auth/me")
+        console.log("me: ", me)
         user.set(me)
-    } catch {
+    } catch (e) {
+        console.log(e)
         localStorage.removeItem("token")
         user.set(null)
     }
