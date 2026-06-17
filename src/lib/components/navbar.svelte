@@ -2,6 +2,8 @@
   // @ts-nocheck
 
   import { user } from "$lib/auth";
+
+  const API_URL = import.meta.env.VITE_API_URL;
 </script>
 
 <nav class="bg-blue-500 flex items-center justify-between p-1">
@@ -23,7 +25,7 @@
         class="w-15 h-15 rounded-full"
       />
     {:else}
-      <a href="http://localhost:8000/auth/login">Log In</a>
+      <a href="{API_URL}/auth/login">Log In</a>
     {/if}
   </div>
 </nav>
