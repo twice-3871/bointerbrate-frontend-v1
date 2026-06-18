@@ -3,29 +3,25 @@ import { writable } from "svelte/store";
 import { api } from "./api";
 
 export const user = writable<User | null>(null)
-export const authLoading = writable(true);
+export const authReady = writable(false);
 
 export async function initAuth() {
-    console.log("INIT AUTH RUN");
-
     const token = localStorage.getItem("token");
 
     if (!token) {
         user.set(null);
-        authLoading.set(false);
+        authReady.set(true);
         return;
     }
 
     try {
         const me = await api<User>("auth/me");
-        console.log("AUTH SUCCESS:", me);
         user.set(me);
     } catch (e) {
-        console.log(e);
         localStorage.removeItem("token");
         user.set(null);
     } finally {
-        authLoading.set(false);
+        authReady.set(true);
     }
 }
 

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { api } from "$lib/api";
-  import { user } from "$lib/auth";
-  import { authLoading } from "$lib/auth";
+  import { user, authReady } from "$lib/auth";
   import { goto } from "$app/navigation";
 
   let error = $state("");
@@ -56,14 +55,13 @@
     console.log("AUTH USER:", $user?.is_allowed);
     console.log("USER STATE CHANGE →", JSON.stringify($user, null, 2));
 
-    if (!authLoading) return;
+    if (!$authReady) return;
 
-    if ($user?.is_allowed) {
-      loadRecordSubmissions();
-      console.log("user:", $user);
-    } else {
+    if (!$user?.is_allowed) {
       goto("/");
       console.error("You do not have access to that route");
+    } else {
+      loadRecordSubmissions();
     }
   });
 </script>
