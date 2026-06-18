@@ -4,41 +4,39 @@
   const API_URL = import.meta.env.VITE_API_URL;
 </script>
 
-<nav class="bg-blue-500 text-white px-4 py-2 flex items-center justify-between">
-  <!-- LEFT: Logo (original style) -->
+<nav class="bg-blue-500 text-white px-4 py-3 flex items-center justify-between">
+  <!-- Logo -->
   <img src="/bblogo.png" alt="Bointerbrate" class="h-10 object-contain" />
 
-  <!-- CENTER: Desktop links (original vibe restored) -->
-  <div class="hidden md:flex items-center gap-6 text-lg">
+  <!-- Desktop links + auth (COMBINED) -->
+  <div class="hidden md:flex items-center gap-4 text-xl">
     <a href="/" class="hover:opacity-80">Home</a>
     <a href="/list/classic" class="hover:opacity-80">List</a>
     <a href="/submit" class="hover:opacity-80">Submit</a>
     <a href="/rules" class="hover:opacity-80">Rules</a>
-  </div>
 
-  <!-- RIGHT: Auth (desktop) -->
-  <div>
+    <!-- Auth lives WITH links now -->
     {#if $user}
       <img
         src={`https://cdn.discordapp.com/avatars/${$user.id}/${$user.avatar}.png`}
-        class="w-9 h-9 rounded-full"
+        class="w-11 h-11 rounded-full ml-2"
         alt="avatar"
       />
     {:else}
       <a
         href={`${API_URL}/auth/login`}
-        class="bg-white text-blue-600 px-3 py-1 rounded"
+        class="bg-white text-blue-600 px-4 py-1 rounded text-base font-medium ml-2"
       >
         Log In
       </a>
     {/if}
   </div>
 
-  <!-- MOBILE BUTTON -->
+  <!-- Mobile button -->
   <button class="md:hidden text-2xl" onclick={() => (open = !open)}> ☰ </button>
 </nav>
 
-<!-- MOBILE MENU -->
+<!-- Mobile menu -->
 {#if open}
   <div class="md:hidden bg-blue-600 text-white px-4 py-3 flex flex-col gap-3">
     <a href="/" onclick={() => (open = false)}>Home</a>
@@ -49,11 +47,9 @@
     <div class="border-t border-white/20 pt-3 mt-2">
       {#if $user}
         <div class="flex items-center gap-2">
-          <!-- svelte-ignore a11y_img_redundant_alt -->
           <img
             src={`https://cdn.discordapp.com/avatars/${$user.id}/${$user.avatar}.png`}
-            class="w-8 h-8 rounded-full"
-            alt="Profile Picture"
+            class="w-9 h-9 rounded-full"
           />
           <span class="text-sm">{$user.username}</span>
         </div>
