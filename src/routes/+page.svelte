@@ -1,5 +1,7 @@
 <div class="flex flex-col items-center gap-5 m-15">
-  <div class="bg-blue-500 w-full max-w-4xl rounded-xl p-6 [&>h1]:font-bold">
+  <div
+    class="bg-blue-500 w-full max-w-4xl rounded-xl p-6 my-5 [&>h1]:font-bold"
+  >
     <h1 class="text-5xl my-5 text-center">Welcome to Bointerbrate!</h1>
     <p>
       Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit ipsum

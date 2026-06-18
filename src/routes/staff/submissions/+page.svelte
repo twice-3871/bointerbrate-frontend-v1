@@ -2,7 +2,6 @@
   import { api } from "$lib/api";
   import { user } from "$lib/auth";
   import { goto } from "$app/navigation";
-  import { onMount } from "svelte";
 
   let error = $state("");
   let loaded = $state(false);
@@ -53,6 +52,8 @@
   }
 
   $effect(() => {
+    console.log("AUTH USER:", $user);
+
     if ($user?.is_allowed && !loaded) {
       loaded = true;
       loadRecordSubmissions();
