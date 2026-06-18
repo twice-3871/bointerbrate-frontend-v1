@@ -3,7 +3,7 @@
 
   const {
     level_data: { Level, Records },
-  } = data;
+  } = $derived(data);
 
   function getYoutubeThumbnail(url: string) {
     if (!url) return "/placeholder.png";
@@ -13,8 +13,6 @@
 
     return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
   }
-
-  console.log(Level.level_data);
 </script>
 
 <div class="flex justify-center gap-5 m-15">
