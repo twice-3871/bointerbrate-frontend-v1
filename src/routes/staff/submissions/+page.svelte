@@ -57,6 +57,8 @@
       loaded = true;
       loadRecordSubmissions();
       console.log("user:", $user);
+    } else {
+      goto("/");
     }
   });
 </script>
