@@ -52,7 +52,7 @@
   }
 
   $effect(() => {
-    console.log("AUTH USER:", $user);
+    console.log("AUTH USER:", $user?.is_allowed);
 
     if (!authLoading) return;
 
