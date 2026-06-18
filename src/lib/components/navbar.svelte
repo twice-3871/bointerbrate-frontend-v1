@@ -6,7 +6,7 @@
 
 <nav class="bg-blue-500 text-white px-4 py-3 flex items-center justify-between">
   <img src="/bblogo.png" alt="Bointerbrate" class="h-10 object-contain" />
-  <h1 class="text-red-500 text-3xl">
+  <h1 class="hidden md: text-red-500 text-3xl">
     <b>THIS WEBSITE IS CURRENTLY TESTING! BUGS ARE EXPECTED</b>
   </h1>
 
