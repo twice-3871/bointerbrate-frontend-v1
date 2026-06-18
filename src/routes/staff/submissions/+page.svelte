@@ -6,8 +6,6 @@
 
   let error = $state("");
 
-  console.log("gelo", $user?.is_allowed);
-
   type Submission = {
     id: number;
     username: string;
@@ -54,7 +52,9 @@
   }
 
   onMount(() => {
-    loadRecordSubmissions();
+    if ($user?.is_allowed) {
+      loadRecordSubmissions();
+    }
   });
 </script>
 
