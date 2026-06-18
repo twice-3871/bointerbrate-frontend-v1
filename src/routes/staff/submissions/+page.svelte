@@ -1,8 +1,12 @@
 <script lang="ts">
   import { api } from "$lib/api";
+  import { user } from "$lib/auth";
+  import { goto } from "$app/navigation";
   import { onMount } from "svelte";
 
   let error = $state("");
+
+  console.log("gelo", user);
 
   type Submission = {
     id: number;
