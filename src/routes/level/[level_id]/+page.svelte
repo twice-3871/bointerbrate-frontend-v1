@@ -1,6 +1,8 @@
 <script lang="ts">
   let { data } = $props();
 
+  console.log(data.level_data);
+
   const {
     level_data: { Level, Records },
   } = $derived(data);
