@@ -30,4 +30,4 @@
 </script>
 
 <p>you should be logged in now</p>
-<img src="static/rodwave.png" alt="" />
+<img src="/rodwave.png" alt="" />
