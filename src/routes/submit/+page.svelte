@@ -28,7 +28,7 @@
         body: JSON.stringify({
           level_id: Number(level_id),
           progress: Number(progress),
-          video_url,
+          video_url: String(video_url),
         }),
       });
 
