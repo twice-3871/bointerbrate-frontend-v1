@@ -3,6 +3,9 @@
   import { onMount } from "svelte";
 
   onMount(async () => {
+    console.log("URL:", window.location.href);
+    console.log("Search:", window.location.search);
+
     const params = new URLSearchParams(window.location.search);
 
     console.log("full query:", window.location.search);
