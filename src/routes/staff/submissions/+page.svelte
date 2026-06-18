@@ -59,6 +59,8 @@
       console.log("user:", $user);
     } else {
       goto("/");
+      loaded = false;
+      console.error("You do not have access to that route");
     }
   });
 </script>
