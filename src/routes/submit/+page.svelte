@@ -127,6 +127,7 @@
       class="w-full bg-white text-blue-600 font-semibold py-2 rounded hover:opacity-90 disabled:opacity-50"
       disabled={loading}
       type="submit"
+      onclick={submit}
     >
       {loading ? "Submitting..." : "Submit Record"}
     </button>
