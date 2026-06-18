@@ -20,6 +20,7 @@ export async function api<T>(
  
     if (!res.ok) {
         const text = await res.text();
+        console.error("AUTH FAIL RESPONSE:", text);
         throw new Error(`API error ${res.status}: ${text}`);
     }
 
