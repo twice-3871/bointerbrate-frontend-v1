@@ -19,7 +19,8 @@ export async function api<T>(
     })
  
     if (!res.ok) {
-        throw new Error(`API errorL: ${res.status}`)
+        const text = await res.text();
+        throw new Error(`API error ${res.status}: ${text}`);
     }
 
     return res.json();
