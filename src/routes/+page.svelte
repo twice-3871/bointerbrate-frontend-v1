@@ -21,7 +21,7 @@
         class="flex flex-row flex flex-wrap [&>p]:bg-red-500 [&>p]:rounded-xl [&>p]:w-fit [&>p]:p-3 [&>p]:m-2 [&>p]:font-bold"
       >
         <p>Twice3871</p>
-        <p>Red_GD</p>
+        <p>RedGD</p>
         <p>LuckyNS</p>
         <p>Choaz</p>
       </div>

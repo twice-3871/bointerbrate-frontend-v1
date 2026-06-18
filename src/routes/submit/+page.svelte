@@ -33,11 +33,13 @@
       });
 
       success = true;
+      error = "";
       level_id = "";
       progress = 0;
       video_url = "";
     } catch (e) {
       error = "Failed to submit record";
+      success = false;
     } finally {
       loading = false;
     }
@@ -57,44 +59,73 @@
   });
 </script>
 
-<div class="flex flex-col items-center gap-5 m-15">
+<div class="flex justify-center p-6">
   <form
-    class="flex flex-col bg-blue-500 w-full max-w-4xl rounded-xl p-6 [&>h1]:font-bold"
+    class="w-full max-w-2xl bg-blue-500 text-white rounded-2xl shadow-lg p-6 space-y-5"
     onsubmit={(e) => {
       e.preventDefault();
       submit();
     }}
   >
-    <select bind:value={type_of_level}>
-      <option value="classic">Classic</option>
-      <option value="challenge">Challenge</option>
-      <option value="platformer">Platformer</option>
-    </select>
+    <h1 class="text-2xl font-bold text-center">Submit Record</h1>
 
-    <select bind:value={level_id}>
-      <option value="">Select a level</option>
+    <div class="flex flex-col gap-1">
+      <label class="opacity-80">Level Type</label>
+      <select class="p-2 rounded text-black" bind:value={type_of_level}>
+        <option value="classic">Classic</option>
+        <option value="challenge">Challenge</option>
+        <option value="platformer">Platformer</option>
+      </select>
+    </div>
 
-      {#each levels as level}
-        <option value={level.level_id}>
-          #{level.level_pos} - {level.level_name}
-        </option>
-      {/each}
-    </select>
+    <div class="flex flex-col gap-1">
+      <label class="opacity-80">Level</label>
+      <select class="p-2 rounded text-black" bind:value={level_id}>
+        <option value="">Select a level</option>
 
-    <input bind:value={progress} placeholder="Progress" />
-    <input bind:value={video_url} placeholder="Video URL" />
+        {#each levels as level}
+          <option value={level.level_id}>
+            #{level.level_pos} - {level.level_name}
+          </option>
+        {/each}
+      </select>
+    </div>
 
-    <button disabled={loading} type="submit">
-      {loading ? "Submitting..." : "Submit"}
+    <div class="flex flex-col gap-1">
+      <label class="opacity-80">Progress (%)</label>
+      <input
+        class="p-2 rounded text-black"
+        type="number"
+        min="0"
+        max="100"
+        bind:value={progress}
+        placeholder="e.g. 75"
+      />
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <label class="opacity-80">Video URL</label>
+      <input
+        class="p-2 rounded text-black"
+        bind:value={video_url}
+        placeholder="https://youtube.com/..."
+      />
+    </div>
+
+    <button
+      class="w-full bg-white text-blue-600 font-semibold py-2 rounded hover:opacity-90 disabled:opacity-50"
+      disabled={loading}
+      type="submit"
+    >
+      {loading ? "Submitting..." : "Submit Record"}
     </button>
+
+    {#if error}
+      <p class="text-red-200 text-sm text-center">{error}</p>
+    {/if}
+
+    {#if success}
+      <p class="text-green-200 text-sm text-center">Submitted successfully!</p>
+    {/if}
   </form>
-
-  {#if error}
-    <p>{error}</p>
-  {/if}
-
-  {#if success}
-    <p>Submitted!</p>
-    {(error = "")}
-  {/if}
 </div>

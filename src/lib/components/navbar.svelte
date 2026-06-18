@@ -5,17 +5,17 @@
 </script>
 
 <nav class="bg-blue-500 text-white px-4 py-3 flex items-center justify-between">
-  <!-- Logo -->
   <img src="/bblogo.png" alt="Bointerbrate" class="h-10 object-contain" />
+  <h1 class="text-red-500 text-3xl">
+    <b>THIS WEBSITE IS CURRENTLY TESTING! BUGS ARE EXPECTED</b>
+  </h1>
 
-  <!-- Desktop links + auth (COMBINED) -->
   <div class="hidden md:flex items-center gap-4 text-xl">
     <a href="/" class="hover:opacity-80">Home</a>
     <a href="/list/classic" class="hover:opacity-80">List</a>
     <a href="/submit" class="hover:opacity-80">Submit</a>
     <a href="/rules" class="hover:opacity-80">Rules</a>
 
-    <!-- Auth lives WITH links now -->
     {#if $user}
       <img
         src={`https://cdn.discordapp.com/avatars/${$user.id}/${$user.avatar}.png`}
@@ -32,11 +32,9 @@
     {/if}
   </div>
 
-  <!-- Mobile button -->
   <button class="md:hidden text-2xl" onclick={() => (open = !open)}> ☰ </button>
 </nav>
 
-<!-- Mobile menu -->
 {#if open}
   <div class="md:hidden bg-blue-600 text-white px-4 py-3 flex flex-col gap-3">
     <a href="/" onclick={() => (open = false)}>Home</a>
