@@ -1,10 +1,10 @@
 <script lang="ts">
   import { api } from "$lib/api";
   import { user } from "$lib/auth";
+  import { authLoading } from "$lib/auth";
   import { goto } from "$app/navigation";
 
   let error = $state("");
-  let loaded = $state(false);
 
   type Submission = {
     id: number;
@@ -54,13 +54,13 @@
   $effect(() => {
     console.log("AUTH USER:", $user);
 
-    if ($user?.is_allowed && !loaded) {
-      loaded = true;
+    if (!authLoading) return;
+
+    if ($user?.is_allowed) {
       loadRecordSubmissions();
       console.log("user:", $user);
     } else {
       goto("/");
-      loaded = false;
       console.error("You do not have access to that route");
     }
   });
