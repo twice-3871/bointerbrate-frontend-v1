@@ -2,10 +2,10 @@
   let { level } = $props();
 
   function getYoutubeThumbnail(url: string) {
-    if (!url) return "/placeholder.png";
+    if (!url) return "static/placeholder.png";
     const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&]+)/);
 
-    if (!match) return "/placeholder.png";
+    if (!match) return "static/placeholder.png";
 
     return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
   }
