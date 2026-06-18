@@ -1,6 +1,7 @@
 <script>
   import { initAuth } from "$lib/auth";
   import { onMount } from "svelte";
+  import { goto } from "$app/navigation";
 
   onMount(async () => {
     console.log("🔥 CALLBACK HIT");
@@ -24,6 +25,7 @@
     console.log("stored:", localStorage.getItem("token"));
 
     await initAuth();
+    goto("/");
   });
 </script>
 
