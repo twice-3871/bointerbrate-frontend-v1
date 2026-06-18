@@ -3,23 +3,19 @@
   import { onMount } from "svelte";
 
   onMount(async () => {
-    console.log("URL:", window.location.href);
-    console.log("Search:", window.location.search);
+    const query = new URLSearchParams(window.location.search);
 
-    const params = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(window.location.hash.replace("#", ""));
 
-    console.log("full query:", window.location.search);
+    const token = query.get("token") || hash.get("token");
 
-    const token = params.get("token");
     console.log("token:", token);
 
     if (!token) return;
 
     localStorage.setItem("token", token);
-    console.log("stored:", localStorage.getItem("token"));
 
     await initAuth();
-
     window.location.replace("/");
   });
 </script>
