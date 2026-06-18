@@ -11,9 +11,9 @@
   }
 </script>
 
-<div class="bg-blue-500 w-200 mb-5 p-5 text-3xl flex justify-left">
+<div class="bg-blue-500 m-5 p-3 text-3xl flex justify-left">
   <a href={`/level/${level.level_id}`} class="block">
-    <div class="bg-blue-500 w-200 mb-5 flex">
+    <div class="bg-blue-500 w-175 flex items-center justify-left">
       <img
         src={getYoutubeThumbnail(level.verification_url)}
         class="w-56 h-32 object-cover"
