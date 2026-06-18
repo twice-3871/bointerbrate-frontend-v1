@@ -5,6 +5,7 @@
   import { onMount } from "svelte";
 
   let error = $state("");
+  let loaded = $state(false);
 
   type Submission = {
     id: number;
@@ -51,9 +52,11 @@
     }
   }
 
-  onMount(() => {
-    if ($user?.is_allowed) {
+  $effect(() => {
+    if ($user?.is_allowed && !loaded) {
+      loaded = true;
       loadRecordSubmissions();
+      console.log("user:", $user);
     }
   });
 </script>
