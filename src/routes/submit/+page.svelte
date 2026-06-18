@@ -70,8 +70,12 @@
     <h1 class="text-2xl font-bold text-center">Submit Record</h1>
 
     <div class="flex flex-col gap-1">
-      <label class="opacity-80">Level Type</label>
-      <select class="p-2 rounded text-black" bind:value={type_of_level}>
+      <label for="type-of-level" class="opacity-80">Level Type</label>
+      <select
+        id="type-of-level"
+        class="p-2 rounded text-black"
+        bind:value={type_of_level}
+      >
         <option value="classic">Classic</option>
         <option value="challenge">Challenge</option>
         <option value="platformer">Platformer</option>
@@ -79,8 +83,12 @@
     </div>
 
     <div class="flex flex-col gap-1">
-      <label class="opacity-80">Level</label>
-      <select class="p-2 rounded text-black" bind:value={level_id}>
+      <label for="level-select" class="opacity-80">Level</label>
+      <select
+        id="level-select"
+        class="p-2 rounded text-black"
+        bind:value={level_id}
+      >
         <option value="">Select a level</option>
 
         {#each levels as level}
@@ -92,8 +100,9 @@
     </div>
 
     <div class="flex flex-col gap-1">
-      <label class="opacity-80">Progress (%)</label>
+      <label for="progress-input" class="opacity-80">Progress (%)</label>
       <input
+        id="progress-input"
         class="p-2 rounded text-black"
         type="number"
         min="0"
@@ -104,9 +113,11 @@
     </div>
 
     <div class="flex flex-col gap-1">
-      <label class="opacity-80">Video URL</label>
+      <label for="video-url-input" class="opacity-80">Video URL</label>
       <input
+        id="video-url-input"
         class="p-2 rounded text-black"
+        type="url"
         bind:value={video_url}
         placeholder="https://youtube.com/..."
       />

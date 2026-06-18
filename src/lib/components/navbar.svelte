@@ -48,6 +48,7 @@
           <img
             src={`https://cdn.discordapp.com/avatars/${$user.id}/${$user.avatar}.png`}
             class="w-9 h-9 rounded-full"
+            alt="profile picture"
           />
           <span class="text-sm">{$user.username}</span>
         </div>
