@@ -2,16 +2,28 @@
   import { initAuth } from "$lib/auth";
   import { onMount } from "svelte";
 
-  onMount(() => {
+  onMount(async () => {
     console.log("🔥 CALLBACK HIT");
 
-    console.log("href:", window.location.href);
-    console.log("search:", window.location.search);
-    console.log("hash:", window.location.hash);
+    const hash = window.location.hash; // raw string
 
-    const token = "TEST_TOKEN";
+    console.log("RAW HASH:", hash);
+
+    let token = null;
+
+    if (hash.startsWith("#token=")) {
+      token = hash.replace("#token=", "");
+    }
+
+    console.log("EXTRACTED TOKEN:", token);
+
+    if (!token) return;
+
     localStorage.setItem("token", token);
 
     console.log("stored:", localStorage.getItem("token"));
+
+    await initAuth();
+    window.location.replace("/");
   });
 </script>
