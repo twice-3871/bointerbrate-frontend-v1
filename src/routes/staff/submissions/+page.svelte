@@ -5,6 +5,7 @@
   import { goto } from "$app/navigation";
 
   let error = $state("");
+  $user;
 
   type Submission = {
     id: number;
@@ -53,6 +54,7 @@
 
   $effect(() => {
     console.log("AUTH USER:", $user?.is_allowed);
+    console.log("USER STATE CHANGE →", JSON.stringify($user, null, 2));
 
     if (!authLoading) return;
 
