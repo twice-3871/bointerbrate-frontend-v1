@@ -2,20 +2,16 @@
   import { initAuth } from "$lib/auth";
   import { onMount } from "svelte";
 
-  onMount(async () => {
-    const query = new URLSearchParams(window.location.search);
+  onMount(() => {
+    console.log("🔥 CALLBACK HIT");
 
-    const hash = new URLSearchParams(window.location.hash.replace("#", ""));
+    console.log("href:", window.location.href);
+    console.log("search:", window.location.search);
+    console.log("hash:", window.location.hash);
 
-    const token = query.get("token") || hash.get("token");
-
-    console.log("token:", token);
-
-    if (!token) return;
-
+    const token = "TEST_TOKEN";
     localStorage.setItem("token", token);
 
-    await initAuth();
-    window.location.replace("/");
+    console.log("stored:", localStorage.getItem("token"));
   });
 </script>
