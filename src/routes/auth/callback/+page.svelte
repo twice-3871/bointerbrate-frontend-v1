@@ -24,5 +24,6 @@
     console.log("stored:", localStorage.getItem("token"));
 
     await initAuth();
+    window.location.replace("/");
   });
 </script>
