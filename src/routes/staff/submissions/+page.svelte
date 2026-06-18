@@ -6,7 +6,7 @@
 
   let error = $state("");
 
-  console.log("gelo", $user);
+  console.log("gelo", $user?.is_allowed);
 
   type Submission = {
     id: number;
