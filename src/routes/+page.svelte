@@ -23,7 +23,7 @@
         <p>Twice3871</p>
         <p>RedGD</p>
         <p>LuckyNS</p>
-        <p>Choaz</p>
+        <p>Chaoz</p>
       </div>
     </div>
     <div class="bg-blue-500 flex-1 rounded-xl p-6 [&>h1]:font-bold">
